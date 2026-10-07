@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Community Library Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-featured Library Management System built with React. It lets librarians/admins manage books, transactions, and users, with a dashboard showing stock availability and low-stock alerts. All data is persisted in the browser's Local Storage.
+
+## Features
+
+- **Login & Authentication** — membership ID + password login, session persisted in Local Storage
+- **Dashboard** — stats cards (total books, total stock, low stock, registered users) and a searchable book availability table with low-stock highlighting (< 2 copies)
+- **Book Management** — add, update, delete books with ISBN uniqueness validation
+- **Transactions** — record stock additions (new arrivals) and deductions (borrowed), with a full transaction history and stock validation (can't deduct more than available)
+- **User Management** (admin only) — add, update, delete users; protects the last admin and prevents deleting your own account
+- **Role-based access** — members cannot access User Management
+- **Responsive UI** — sidebar layout, works on smaller screens
+
+## Tech Stack
+
+- React (Create React App)
+- React Router DOM
+- React Context API + Hooks (`useState`, `useEffect`, `useContext`)
+- Local Storage for persistence
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable components (Layout, forms, lists, ProtectedRoute)
+├── pages/            # Pages (Login, Dashboard, Books, Transactions, Users)
+├── context/          # LibraryContext — global state management
+├── utils/            # storage.js — Local Storage helpers
+├── App.js            # Router setup
+└── index.js
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+
+### Install & Run
+
+```bash
+npm install
+npm start
+```
+
+Then open http://localhost:3000
+
+### Default Admin Login
+```
+Membership ID: ADMIN001
+Password:      admin123
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` — run the development server
+- `npm run build` — create a production build
+- `npm test` — run tests
 
-### `npm start`
+## Notes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This was built as a student assignment demonstrating React fundamentals: components, hooks, Context, Router, controlled forms, and Local Storage.
